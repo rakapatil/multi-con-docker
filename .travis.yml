@@ -11,7 +11,7 @@ scripts:
 
 after_success:
   - docker build -t rkdocker3191/multi-client ./client 
-  - docker build -t rkdocker3191/multi-nginx ./nginx
+  - docker build -t rkdocker3191/multi-nginx ./nginx/Dockerfile.dev 
   - docker build -t rkdocker3191/multi-server ./server
   - docker build -t rkdocker3191/multi-worker ./worker   
 
