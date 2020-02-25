@@ -1,0 +1,26 @@
+language: generic
+sudo: required
+servides:
+  - docker
+ 
+before_install:
+  - docker build -t rkdocker3191/react-test -f ./client/Dockerfile.dev ./client 
+  
+scripts:
+  - docker run -e CI=true rkdocker3191/react-test npm test
+
+after_success:
+  - docker build -t rkdocker3191/multi-client ./client 
+  - docker build -t rkdocker3191/multi-nginx ./nginx
+  - docker build -t rkdocker3191/multi-server ./server
+  - docker build -t rkdocker3191/multi-worker ./worker   
+
+  #docker login
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin 
+
+  # take those images and push them to docker hub
+  - docker push rkdocker3191/multi-client
+  - docker push rkdocker3191/multi-nginx
+  - docker push rkdocker3191/multi-server
+  - docker push rkdocker3191/multi-worker  
+       
