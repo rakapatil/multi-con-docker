@@ -1,5 +1,5 @@
 {
-	"AWSESDockerrunVersion": 2,
+	"AWSEBDockerrunVersion": 2,
 	"containerDefination": [{
 			"name": "client",
 			"image": "rkdocker3191/multi-client",
