@@ -12,14 +12,14 @@
 			"image": "rkdocker3191/multi-server",
 			"hostname": "api",
 			"essential": false,
-			"memoery": 128
+			"memory": 128
 		},
 		{
 			"name": "worker",
 			"image": "rkdocker3191/multi-worker",
 			"hostname": "worker",
 			"essential": false,
-			"memoery": 128
+			"memory": 128
 		},
 		{
 			"name": "nginx",
